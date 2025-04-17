@@ -159,7 +159,7 @@ with tab3:
         
         # Select dislayed metric
         if display == "Total Registered Builds":
-            color_by = "Total Builds"
+            color_by = "Total_Buildings"
         else:
             color_by = "Mean_Rating"
         colors = merged[color_by]
@@ -168,7 +168,7 @@ with tab3:
         max_val = colors.max()
 
         # Create the colormap
-        if display == "Total Builds":
+        if display == "Total Registered Builds":
             colormap = cm.linear.Blues_09.scale(min_val, max_val)
             colormap.caption = "Total Projects by Ward"
         else:
@@ -186,7 +186,7 @@ with tab3:
             },
             tooltip=folium.GeoJsonTooltip(
                 fields=["ward", "Mean_Rating", "Total_Buildings"],
-                aliases=["Ward", "Average Rating", "Total Buildings"]
+                aliases=["Ward", "Average Energy Rating", "Total Registered Builds"]
             )
         ).add_to(m)
         
