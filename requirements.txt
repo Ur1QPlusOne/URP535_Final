@@ -1,3 +1,9 @@
-﻿streamlit
+streamlit
 streamlit-folium
 folium
+geopandas
+shapely
+branca
+pandas
+numpy
+json
