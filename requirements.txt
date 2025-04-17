@@ -1,0 +1,3 @@
+﻿streamlit
+streamlit-folium
+folium
