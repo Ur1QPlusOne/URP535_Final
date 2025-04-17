@@ -66,20 +66,28 @@ def make_shape(geo):
 ###    -------------   HEADER   -------------    ###
 #    -------------------------------------------   #
 
-st.set_page_config(
-    layout="wide",
-    page_title="Dylan's URP 535 Final",
-    page_icon="🏙️",
-    )
-st.header("Chicago Energy Visualization")
-st.subheader("regular text ah")
+st.set_page_config(layout="wide", page_title="Dylan's URP 535 Final", page_icon="🏙️")
+st.header("The State of Energy Retrofiting in Chicago")
 tab1, tab2, tab3, tab4 = st.tabs(["Home", "Context", "Data","Findings"])
 
 with tab1:
-    st.write('hello world 1')
+    st.write("Hello!  My name is Dylan Ingui.  I am a junior at the University of Michigan studying Urban Technology with a minor in \
+            User Experience Design.  I come from a background in high performance building, and the purpose of my work is to \
+            promote and practice energy efficiency in urban contexts.  This project was created as a way to visualize if and where \
+            in Chicago energy efficiency is becoming prioritized.  The goal is to understand the energy efficient landscape of the city or lack thereof.")
 
 with tab2:
-    st.write('hello world 2')
+    st.write("In America, there has been a large push towards energy efficiency in the built environment in a plethora of \
+            the country's largest cities.  New York City gives large buildings an energy limit through Local Law 97, and the \
+            city taxes large building owners that refuse to comply.  Boston's BERDO 2.0 and DC's BEPS programs were \
+            introduced to place strict emissions thresholds on certain building types.  Finally, San Francisco's \
+            Climate Action Plan focuses more on electrification and decarbonization rather than on emission caps.  \
+            The City of Chicago, however, is still in the early stages of climate legislation.")
+    
+    st.write("Despite not having any strong action plans passed in legislation yet, Chicago has indirectly created an effort \
+            to promote energy efficiency.  The city does have coalitions that are pushing for something similar to NYC's local \
+            law 97, and Chicago has been require buildings over 50,000 square feet to report on their energy consumption once every \
+            three years to receive an energy rating.")
 
 with tab3:
     col1, col2 = st.columns([1, 2])
@@ -115,7 +123,7 @@ with tab3:
         # Select dislayed metric
         display = st.selectbox(
             "Select Displayed Metric:",
-            ("Total Registered Builds", "Average Energy Rating")
+            ("Total Project Built", "Average Energy Rating")
         )
 
         # Print what user is viewing
@@ -158,7 +166,7 @@ with tab3:
         m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
         
         # Select dislayed metric
-        if display == "Total Registered Builds":
+        if display == "Total Projects Built":
             color_by = "Total_Buildings"
         else:
             color_by = "Mean_Rating"
@@ -168,7 +176,7 @@ with tab3:
         max_val = colors.max()
 
         # Create the colormap
-        if display == "Total Registered Builds":
+        if display == "Total Project Built":
             colormap = cm.linear.Blues_09.scale(min_val, max_val)
             colormap.caption = "Total Projects by Ward"
         else:
@@ -186,7 +194,7 @@ with tab3:
             },
             tooltip=folium.GeoJsonTooltip(
                 fields=["ward", "Mean_Rating", "Total_Buildings"],
-                aliases=["Ward", "Average Energy Rating", "Total Registered Builds"]
+                aliases=["Ward", "Average Energy Rating", "Total Projects Built"]
             )
         ).add_to(m)
         
