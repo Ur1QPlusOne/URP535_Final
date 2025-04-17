@@ -76,10 +76,10 @@ st.subheader("regular text ah")
 tab1, tab2, tab3, tab4 = st.tabs(["Home", "Context", "Data","Findings"])
 
 with tab1:
-    st.write('hello world')
+    st.write('hello world 1')
 
 with tab2:
-    st.write('hello world')
+    st.write('hello world 2')
 
 with tab3:
     col1, col2 = st.columns([1, 2])
@@ -169,10 +169,10 @@ with tab3:
 
         # Create the colormap
         if display == "Total Builds":
-            colormap = cm.linear.Blues.scale(min_val, max_val)
+            colormap = cm.linear.Blues_09.scale(min_val, max_val)
             colormap.caption = "Total Projects by Ward"
         else:
-            colormap = cm.linear.Greens.scale(min_val, max_val)
+            colormap = cm.linear.Greens_09.scale(min_val, max_val)
             colormap.caption = "Average Rating by Ward"
 
         # Add geometry, color, and stroke.
@@ -194,6 +194,6 @@ with tab3:
 
         # Display map in Streamlit
         st_data = st_folium(m, width=800, height=500)
-        
+
 with tab4:
-    st.write('hello world')
+    st.write('hello world 3')
