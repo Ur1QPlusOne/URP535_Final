@@ -2,8 +2,8 @@ streamlit
 streamlit-folium
 folium
 geopandas
+pyproj
 shapely
-branca
+fiona
+rtree
 pandas
-numpy
-json
