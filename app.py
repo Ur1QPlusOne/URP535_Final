@@ -67,8 +67,8 @@ def make_shape(geo):
 #    -------------------------------------------   #
 
 st.set_page_config(layout="wide", page_title="Dylan's URP 535 Final", page_icon="🏙️")
-st.header("The State of Energy Retrofiting in Chicago")
-tab1, tab2, tab3, tab4 = st.tabs(["Home", "Context", "Data","Findings"])
+st.header("Understanding the State of Energy Efficiency in Chicago")
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Home", "Context", "Methods", "Data","Findings"])
 
 with tab1:
     st.write("Hello!  My name is Dylan Ingui.  I am a junior at the University of Michigan studying Urban Technology with a minor in \
@@ -90,6 +90,9 @@ with tab2:
             three years to receive an energy rating.")
 
 with tab3:
+    st.write("these are methods")
+
+with tab4:
     col1, col2 = st.columns([1, 2])
 
 
@@ -203,5 +206,5 @@ with tab3:
         # Display map in Streamlit
         st_data = st_folium(m, width=800, height=500)
 
-with tab4:
+with tab5:
     st.write('hello world 3')
