@@ -126,7 +126,7 @@ with tab4:
         # Select dislayed metric
         display = st.selectbox(
             "Select Displayed Metric:",
-            ("Total Project Built", "Average Energy Rating")
+            ("Total Projects Built", "Average Energy Rating")
         )
 
         # Print what user is viewing
