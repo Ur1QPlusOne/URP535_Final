@@ -115,7 +115,7 @@ with tab3:
         # Select dislayed metric
         display = st.selectbox(
             "Select Displayed Metric:",
-            ("Total Builds", "Average Rating")
+            ("Total Registered Builds", "Average Energy Rating")
         )
 
         # Print what user is viewing
@@ -158,7 +158,7 @@ with tab3:
         m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
         
         # Select dislayed metric
-        if display == "Total_Buildings":
+        if display == "Total Registered Builds":
             color_by = "Total Builds"
         else:
             color_by = "Mean_Rating"
@@ -173,7 +173,7 @@ with tab3:
             colormap.caption = "Total Projects by Ward"
         else:
             colormap = cm.linear.Greens_09.scale(min_val, max_val)
-            colormap.caption = "Average Rating by Ward"
+            colormap.caption = "Average Energy Rating by Ward"
 
         # Add geometry, color, and stroke.
         folium.GeoJson(
