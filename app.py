@@ -165,7 +165,7 @@ with tab4:
     #    --------------------------------------------   #
     if display == "Total Projects Built":
         color_by = "Total_Buildings"
-        percent_steps = [0, 10, 20, 70]
+        percent_steps = [0, 5, 10, 70]
     else:
         color_by = "Mean_Rating"
         percent_steps = [0, 25, 50, 75]
