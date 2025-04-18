@@ -165,14 +165,14 @@ with tab4:
     #    --------------------------------------------   #
     if display == "Total Projects Built":
         color_by = "Total_Buildings"
-        percent_steps = [0, 5, 10, 70]
+        percent_steps = [0, 20, 30, 50, 99]
     else:
         color_by = "Mean_Rating"
         percent_steps = [0, 25, 50, 75]
 
     # Get min and max
-    min_val = merged[color_by].min()
-    max_val = merged[color_by].max()
+    min_val = merged[color_by].min().quantile(1)
+    max_val = merged[color_by].max().quantile(99)
 
     # Calculate thresholds
     thresholds = [min_val + (max_val - min_val) * (p / 100) for p in percent_steps]
