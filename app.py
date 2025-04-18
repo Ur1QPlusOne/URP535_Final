@@ -171,13 +171,13 @@ with tab4:
         percents = [0, .25, .5, .75]
 
     # Get min and max
-    vmin = merged[color_by].min()
-    vmax = merged[color_by].quantile(0.99)
+    min_val = merged[color_by].min()
+    max_val = merged[color_by].quantile(0.99)
 
     # Create bins
     n_bins = 5
     # Create threshold manually
-    thresholds = list(np.linspace(vmin, vmax, n_bins + 1))
+    thresholds = list(np.linspace(min_val, max_val, n_bins + 1))
 
     # Colors!
     if display == "Total Projects Built":
