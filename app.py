@@ -208,6 +208,8 @@ with tab4:
         # Create map (centered around Chicago)
         m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
         
+        ticks = 5
+        equal_ticks = np.linspace(min_val, max_val, ticks + 1)
 
         # Add GeoJson layer
         folium.GeoJson(
