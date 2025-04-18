@@ -165,10 +165,10 @@ with tab4:
     #    --------------------------------------------   #
     if display == "Total Projects Built":
         color_by = "Total_Buildings"
-        percents = [0, 4, 25, 50]
+        percents = [0, .04, .25, .5]
     else:
         color_by = "Mean_Rating"
-        percents = [0, 25, 50, 75]
+        percents = [0, .25, .5, .75]
 
     # Get min and max
     min_val = merged[color_by].quantile(0.01)
