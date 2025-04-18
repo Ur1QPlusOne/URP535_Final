@@ -87,7 +87,7 @@ with tab1:
             promote and practice energy efficiency in urban contexts.  This project was created as a way to understand and visualize \
             the landscape of energy efficiency in Chicago.")
     with col2:
-        st.image('/Users/dinguid/PH Accelerator Dropbox/Dylan Ingui/Mac/Desktop/_Urban Technology/URP535 - Urban Informatics/URP535_Final/Thermal_Image.jpg', width=500)
+        st.image('images/Thermal_Image.jpg', width=500)
     st.write("------------------------------------------------------------------------------")
 
 
@@ -100,7 +100,7 @@ with tab1:
 with tab2:
     col1, col2 = st.columns([3,5])
     with col1:
-        st.image('/Users/dinguid/PH Accelerator Dropbox/Dylan Ingui/Mac/Desktop/_Urban Technology/URP535 - Urban Informatics/URP535_Final/Draft_Chicago_Energy_Rating_Placard.jpg', width=400)
+        st.image('images/Draft_Chicago_Energy_Rating_Placard.jpg', width=400)
     with col2:
         st.write("In America, there has been a large push towards energy efficiency in the built environment in a plethora of \
                 the country's largest cities.  New York City gives large buildings an energy limit through [Local Law 97](https://www.nyc.gov/site/buildings/codes/ll97-greenhouse-gas-emissions-reductions.page#:~:text=Local%20Law%2097%20allows%20for,Questions%20and%20LL97%20RECs%20Policy.),\
