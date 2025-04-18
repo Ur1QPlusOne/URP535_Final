@@ -171,8 +171,8 @@ with tab4:
         percent_steps = [0, 25, 50, 75]
 
     # Get min and max
-    min_val = merged[color_by].min().quantile(1)
-    max_val = merged[color_by].max().quantile(99)
+    min_val = merged[color_by].min().quantile(0.01)
+    max_val = merged[color_by].max().quantile(0.99)
 
     # Calculate thresholds
     thresholds = [min_val + (max_val - min_val) * (p / 100) for p in percent_steps]
