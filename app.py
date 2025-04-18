@@ -177,7 +177,7 @@ with tab4:
     # Create bins
     n_bins = 5
     # Create threshold manually
-    thresholds = list(np.linspace(min_val, max_val, n_bins + 1))
+    thresholds = [min_val + (max_val - min_val) * p for p in percents]
 
     # Colors!
     if display == "Total Projects Built":
