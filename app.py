@@ -163,37 +163,48 @@ with tab4:
     #    --------------------------------------------   #
     ###    --------   MAP VISUALIZATION   --------    ###
     #    --------------------------------------------   #
+    if display == "Total Projects Built":
+        color_by = "Total_Buildings"
+    else:
+        color_by = "Mean_Rating"
+
+    # Get min and max
+    min_val = merged[color_by].min()
+    max_val = merged[color_by].max()
+
+    # Calculate thresholds
+    percent_steps = [0, 20, 40, 60, 80, 100]
+    thresholds = [min_val + (max_val - min_val) * (p / 100) for p in percent_steps]
+
+    # Colors!
+    if display == "Total Projects Built":
+        colors = ['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd']
+        caption = "Total Projects by Ward"
+    else:
+        colors = ['#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354']
+        caption = "Average Energy Rating by Ward"
+
+    # Create a step colormap
+    colormap = cm.StepColormap(
+        colors=colors,
+        index=thresholds,
+        vmin=min_val,
+        vmax=max_val,
+        caption=caption
+    )
+
+
+
+
+
+    #    --------------------------------------------   #
+    ###    --------   MAP VISUALIZATION   --------    ###
+    #    --------------------------------------------   #
 
     with col2:
         # Create map (centered around Chicago)
         m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
         
-        # Select dislayed metric
-        # Define value thresholds
-        thresholds = [0, 20, 40, 60, 80, 100]
-
-        # Choose metric
-        if display == "Total Projects Built":
-            color_by = "Total_Buildings"
-            colormap = cm.StepColormap(
-                colors=['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd'],
-                index=thresholds,
-                vmin=0,
-                vmax=100
-            )
-            colormap.caption = "Total Projects by Ward"
-        else:
-            color_by = "Mean_Rating"
-            colormap = cm.StepColormap(
-                colors=['#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354'],
-                index=thresholds,
-                vmin=0,
-                vmax=100
-            )
-            colormap.caption = "Average Energy Rating by Ward"
-
-        # Create the map
-        m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
 
         # Add GeoJson layer
         folium.GeoJson(
