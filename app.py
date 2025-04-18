@@ -165,14 +165,14 @@ with tab4:
     #    --------------------------------------------   #
     if display == "Total Projects Built":
         color_by = "Total_Buildings"
-        percents = [0, .04, .15, .5]
+        percents = [0, .04, .25, .5]
     else:
         color_by = "Mean_Rating"
         percents = [0, .3, .5, .7, .9]
 
     # Get min and max
     min_val = merged[color_by].min()
-    max_val = merged[color_by].quantile(0.99)
+    max_val = merged[color_by].quantile(0.95)
 
     # Create bins
     n_bins = 5
