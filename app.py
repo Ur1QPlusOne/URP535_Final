@@ -181,7 +181,7 @@ with tab4:
 
     # Colors!
     if display == "Total Projects Built":
-        colors = ['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd']
+        colors = ['#e7efff', '#a4bbea', '#6c90d9', '#3b6bca']
         caption = "Total Projects by Ward"
     else:
         colors = ['#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354']
