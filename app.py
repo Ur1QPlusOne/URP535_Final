@@ -215,14 +215,12 @@ with tab4:
     min_val = merged[color_by].min()
     max_val = merged[color_by].quantile(0.95)
 
-    # Create bins
-    n_bins = 5
     # Create threshold manually
     thresholds = [min_val + (max_val - min_val) * p for p in percents]
 
     # Colors!
     if display == "Total Projects Built":
-        colors = ['#e7efff', '#a4bbea', '#6c90d9', '#3b6bca', '002f8c']
+        colors = ['#e7efff', '#a4bbea', '#6c90d9', '#3b6bca', '#002f8c']
         caption = "Total Projects by Ward"
     else:
         colors = ['#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354']
