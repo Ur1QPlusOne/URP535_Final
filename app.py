@@ -169,24 +169,33 @@ with tab4:
         m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
         
         # Select dislayed metric
+        # Define value thresholds
+        thresholds = [0, 20, 40, 60, 80, 100]
+
+        # Choose metric
         if display == "Total Projects Built":
             color_by = "Total_Buildings"
-        else:
-            color_by = "Mean_Rating"
-        colors = merged[color_by]
-        
-        min_val = colors.min()
-        max_val = colors.max()
-
-        # Create the colormap
-        if display == "Total Project Built":
-            colormap = cm.linear.Blues_09.scale(min_val, max_val)
+            colormap = cm.StepColormap(
+                colors=['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd'],
+                index=thresholds,
+                vmin=0,
+                vmax=100
+            )
             colormap.caption = "Total Projects by Ward"
         else:
-            colormap = cm.linear.Greens_09.scale(min_val, max_val)
+            color_by = "Mean_Rating"
+            colormap = cm.StepColormap(
+                colors=['#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#31a354'],
+                index=thresholds,
+                vmin=0,
+                vmax=100
+            )
             colormap.caption = "Average Energy Rating by Ward"
 
-        # Add geometry, color, and stroke.
+        # Create the map
+        m = folium.Map(location=[41.875, -87.63], zoom_start=9.5)
+
+        # Add GeoJson layer
         folium.GeoJson(
             merged,
             style_function=lambda feature: {
