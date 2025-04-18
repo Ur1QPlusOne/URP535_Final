@@ -173,7 +173,7 @@ with tab4:
     max_val = merged[color_by].max()
 
     # Calculate thresholds
-    percent_steps = [0, 5, 10, 30, 70]
+    percent_steps = [0, 10, 20, 70]
     thresholds = [min_val + (max_val - min_val) * (p / 100) for p in percent_steps]
 
     # Colors!
